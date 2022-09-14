@@ -5,9 +5,9 @@
 #define data 6
 int b1,b2;
 int c1=0,c2=0;
-bool flag1=false,flag2=false,flag=false;
-long long t1=0,t2=0;
-long long inter1,inter2;
+bool flag=false;
+long long t=0;
+long long inter=0;
 void setup(){
     Serial.begin(9600);
     pinMode(bt1,INPUT);
@@ -21,16 +21,14 @@ void loop()
 { 
   b1=digitalRead(bt1);
   b2=digitalRead(bt2);
-  if(b1){c1++;if(c1%2==0){digitalWrite(led1,LOW);}else{digitalWrite(led1,HIGH);};t1=millis();flag=true;inter1=0;t1=millis();}
-  if(flag){inter1=millis()-t1;}
-  if(b2){c2++;if(c2%2==0){digitalWrite(led2,LOW);}else{digitalWrite(led2,HIGH);};t2=millis();flag=true;inter1=0;t1=millis();}
-  if(flag){inter1=millis()-t1;}
-  if(inter1>10000)
+  if(b1){c1++;if(c1%2==0){digitalWrite(led1,LOW);}else{digitalWrite(led1,HIGH);};t=millis();flag=true;inter=0;}
+  if(flag){inter=millis()-t;}
+  if(b2){c2++;if(c2%2==0){digitalWrite(led2,LOW);}else{digitalWrite(led2,HIGH);};t=millis();flag=true;inter=0;}
+  if(flag){inter=millis()-t;}
+  if(inter>10000)
   {
     digitalWrite(data,HIGH);
-    inter1=0;
-    flag1=false;
-    flag2=false;
+    inter=0;
     flag=false;
   }
   
