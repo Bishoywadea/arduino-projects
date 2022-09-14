@@ -21,11 +21,11 @@ void loop()
 { 
   b1=digitalRead(bt1);
   b2=digitalRead(bt2);
-  if(b1){c1++;if(c1%2==0){digitalWrite(led1,LOW);}else{digitalWrite(led1,HIGH);};t=millis();flag=true;inter=0;}
+  if(b1){c1++;if(c1%2==0){digitalWrite(led1,LOW);}else{digitalWrite(led1,HIGH);};t=millis();flag=true;}
   if(flag){inter=millis()-t;}
-  if(b2){c2++;if(c2%2==0){digitalWrite(led2,LOW);}else{digitalWrite(led2,HIGH);};t=millis();flag=true;inter=0;}
+  if(b2){c2++;if(c2%2==0){digitalWrite(led2,LOW);}else{digitalWrite(led2,HIGH);};t=millis();flag=true;}
   if(flag){inter=millis()-t;}
-  if(inter>10000)
+  if(inter>5000)
   {
     digitalWrite(data,HIGH);
     inter=0;
